@@ -73,20 +73,44 @@
 \begin{figure}[ht]
     \centering
 
-    \begin{tabular}{lcccccl}\toprule
-        & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
+    \begin{tabular}{lccc}
+        \toprule
+                      & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
         \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
-                    & RTRL   & RTRL   & RTRL\\\midrule
-        200' Obstacle & 1,631' & 1,146' & 3,821'\\
-        150' Obstacle & 1,223' & 1,719' & 2,866'\\
-        100' Obstacle & 815'   & 1,146' & 1,910'\\
+                      & RTRL                                           & RTRL                                           & RTRL                                           \\\midrule
+        200' Obstacle & 1,631'                                         & 1,146'                                         & 3,821'                                         \\
+        150' Obstacle & 1,223'                                         & 1,719'                                         & 2,866'                                         \\
+        100' Obstacle & 815'                                           & 1,146'                                         & 1,910'                                         \\
     \end{tabular}
 
     \hfill
 
     \textbf{Note:} Subtract obstacle distance from runway end from RTRL.
 
-    \caption{Reduce Takeoff Runway Length (RTRL) by some distance to clear an obstacle of some height.}
+    \caption{Reduce Takeoff Runway Length (RTRL) by some distance to clear an obstacle of some height}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+
+    \begin{tabular}{lc}
+        \toprule
+        Maneuver         & KIAS \\
+        \midrule
+        Steep Turns      & 110  \\
+        Steep Spiral     & 85   \\
+        Chandelles       & 110  \\
+        Lazy Eights      & 110  \\
+        Eights on Pylons & 110  \\
+        % TODO: Add accelerated stall entry speed.
+    \end{tabular}
+
+    \hfill
+
+    % TODO: Maneuvering speed table.
+    \textbf{Note:} Maneuvering speed at 2,500 lbf aircraft gross weight is 111.8 KIAS.
+
+    \caption{Dakota flight maneuver entry speeds}
 \end{figure}
 
 \end{document}
