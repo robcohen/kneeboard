@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{geometry}
+    \geometry{
+        a5paper,
+        portrait,
+        % The Jeppesen plate appears to be closer to 0.25in. I think
+        % that 0.5in is looking best for checklists. Compromising to
+        % accomodate longer line lengths.
+        margin=0.25in,
+        rmargin=0.375in,
+        % I decided arbitrarily on these values to maximize margins,
+        % headers, and content in one page (and satisfy fancyhdr).
+        % https://tex.stackexchange.com/questions/132170/what-do-headheight-headsep-etc-do-in-the-vmargin-package
+        headsep=12pt,
+        footskip=12pt,
+        includehead,
+        includefoot
+    }
+% NASA says:
+% > The horizontal spacing between characters should be 25% of the
+% > overall size and not less than one stroke width.
+%
+% The microtype documentation says:
+% > Letterspaced fonts for which settings don’t exist will be spaced out
+% > by the default of 0.1 em [...]
+% AND
+% > The amount is specified in thousandths of 1 em [...]
+%
+% So, we're scaling the default spacing by 25%, and then converting to
+% housandths of an em (0.1 * 1000 * .25).
+\usepackage[letterspace=25]{microtype}
+% For finer control over multi-column layouts.
+\usepackage{multicol}
+% For finer control over headers and footers.
+\usepackage{fancyhdr}
+% Used for degree symbol.
+\usepackage{gensymb}
+% Used for PDF ToC links.
+\usepackage{hyperref}
+% For printing the creation date of the document.
+\usepackage{datetime2}
+% Used for performance charts.
+\usepackage{booktabs}
+
+% Set the default font family to sans-serif.
+\renewcommand{\familydefault}{\sfdefault}
+
+% NASA says:
+% > The vertical spacing between lines should not be smaller than 25-33%
+% > of the overall size of the font.
+\renewcommand{\baselinestretch}{1.25}
+
+% Configure the header and footer.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Cheat Sheet}
+\fancyfoot[L]{v.\today}
+\fancyfoot[R]{\thepage}
+
+% We don't need numbered sections.
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+% Apply microtype tracking adjustments.
+\lsstyle
+
+% [...] you can say \raggedcolumns if you don’t want the bottom lines to
+% be aligned. The default is \flushcolumns, so TEX will normally try to
+% make both the top and bottom baselines of all columns align.
+\raggedcolumns
+
+\begin{figure}[ht]
+    \centering
+
+    \begin{tabular}{lcccccl}\toprule
+        & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
+        \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+                    & RTRL   & RTRL   & RTRL\\\midrule
+        200' Obstacle & 1,631' & 1,146' & 3,821'\\
+        150' Obstacle & 1,223' & 1,719' & 2,866'\\
+        100' Obstacle & 815'   & 1,146' & 1,910'\\
+    \end{tabular}
+
+    \hfill
+
+    \textbf{Note:} Subtract obstacle distance from runway end from RTRL.
+
+    \caption{Reduce Takeoff Runway Length (RTRL) by some distance to clear an obstacle of some height.}
+\end{figure}
+
+\end{document}
