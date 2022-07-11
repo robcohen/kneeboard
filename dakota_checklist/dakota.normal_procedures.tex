@@ -116,49 +116,38 @@
     \checkitem{Mixture}{lean for taxi}
 \end{checklist}
 
-\begin{checklist}{Before Take Off}
+\begin{checklist}{Before Takeoff}
     \checkitem{Flight controls}{check}
     \checkitem{Flight instruments}{check}
     \checkitem{Carburetor heat}{off}
     \checkitem{Flaps}{set}
     \checkitem{Trim}{set}
-
-    \hfill
-
-    \centering{
-        \emph{Take Off Briefing}
-    }
-
-    \hfill
-
-    \checkitem{Take off distance}{briefed}
-    \checkitem{Take off minimums}{briefed}
+    \begin{center}
+        \emph{Departure Briefing}
+    \end{center}
+    \checkitem{Takeoff distance}{briefed}
+    % TODO: Include some prompt to think about any possibility of
+    % tailwind, extreme crosswind, or extreme temperature inversion.
+    \checkitem{Low, close-in obstacles}{briefed}
     \checkitem{Departure procedure}{briefed}
-    \checkitem{Lost communications}{briefed}
-
-    \hfill
-
-    \centering{
-        \emph{Entering Runway}
-    }
-
-    \hfill
-
-    \checkitem{Time off}{noted}
-    \checkitem{Doors \& windows}{closed}
-
-    \hfill
-
-    \checkitem{Exterior lights}{set}
-    \checkitem{Fuel pump}{on}
-    \checkitem{Mixture}{full rich}
-    \checkitem{Prop}{full forward}
+    \checkitem{Abnormal operations}{briefed}
 \end{checklist}
 
-\begin{checklist}{After Take Off}
-    \checkitem{Prop}{$-$100 RPM}
-    \checkitem{Fuel pump}{off}
-    \checkitem{Mixture}{constant EGT}
+\begin{checklist}{Takeoff}
+    \checkitem{Time off}{noted}
+    \checkitem{Doors \& windows}{secured}
+    \checkitem{Exterior lights}{set}
+    \checkitem{Fuel pump}{on}
+    \checkitem{Mixture}{set}
+    \checkitem{Prop}{full forward}
+    \checkitem{Throttle}{full power}
+
+    \begin{tcolorbox}[boxsep=0mm,left=0mm,right=0mm,colframe=black,colback=black,sharpish corners] 
+        \color{white}
+        \centering {
+            \textbf{I WILL LOSE THE ENGINE,\\I WILL PUSH IMMEDIATELY!}
+        }
+    \end{tcolorbox}
 \end{checklist}
 
 \begin{checklist}{Approach and Landing}
