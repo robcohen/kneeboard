@@ -1,7 +1,11 @@
 \newtcolorbox{checklist_emerg}[1]{
-    coltitle=red!25!black,
+    enhanced,
+    title style={
+        pattern={Lines[angle=60,distance=32pt,line width=16pt]},
+        pattern color=black!75,
+    },
     colback=white,
-    colframe=red!75,
+    colframe=black,
     fonttitle=\centering\bfseries,
     adjusted title={#1},
     sharpish corners,

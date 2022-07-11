@@ -30,7 +30,7 @@
 % housandths of an em (0.1 * 1000 * .25).
 \usepackage[letterspace=25]{microtype}
 % Used for the checklist frames.
-\usepackage{tcolorbox}
+\usepackage[many]{tcolorbox}
 % For the preflight checklist square.
 \usepackage{amssymb}
 % For finer control over multi-column layouts.
@@ -43,6 +43,9 @@
 \usepackage{hyperref}
 % For printing the creation date of the document.
 \usepackage{datetime2}
+% Used for drawing patterns (e.g., the striped emergency procedure background).
+\usepackage{tikz}
+\usetikzlibrary{patterns,patterns.meta}
 
 % This is a macro that formats the checklist items and adds a new line.
 \def\checkitem#1#2{
