@@ -4,12 +4,13 @@
     colframe=black,
     fonttitle=\centering\bfseries,
     adjusted title={#1},
-    sharpish corners
+    sharpish corners,
+    phantom=\phantomsection,
+    add to list={toc}{subsection}
 }
 
-\section{Normal Procedures}
-
-\pagebreak
+\phantomsection
+\addcontentsline{toc}{section}{Normal Procedures}
 
 \twocolumn
 

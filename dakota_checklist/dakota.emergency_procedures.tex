@@ -4,12 +4,15 @@
     colframe=red!75,
     fonttitle=\centering\bfseries,
     adjusted title={#1},
-    sharpish corners
+    sharpish corners,
+    phantom=\phantomsection,
+    add to list={toc}{subsection}
 }
 
-\section{Emergency Procedures}
+\phantomsection
+\addcontentsline{toc}{section}{Emergency Procedures}
 
-\pagebreak
+\twocolumn
 
 \begin{checklist_emerg}{Electrical Fire (Smoke in Cabin)}
     \begin{enumerate}
