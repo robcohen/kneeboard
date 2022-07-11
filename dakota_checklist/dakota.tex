@@ -41,6 +41,8 @@
 \usepackage{gensymb}
 % Used for PDF ToC links.
 \usepackage{hyperref}
+% For printing the creation date of the document.
+\usepackage{datetime2}
 
 % This is a macro that formats the checklist items and adds a new line.
 \def\checkitem#1#2{
@@ -59,9 +61,9 @@
 % Configure the header and footer.
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\rightmark}
-\rhead{Piper PA-28-236}
-\rfoot{\thepage}
+\fancyhead[R]{Piper Dakota (PA-28-236)}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{v.\today}
 \begin{document}
 
 % Apply microtype tracking adjustments.
