@@ -46,6 +46,18 @@
 % Used for drawing patterns (e.g., the striped emergency procedure background).
 \usepackage{tikz}
 \usetikzlibrary{patterns,patterns.meta}
+% Used for performance charts.
+\usepackage{booktabs}
+% Used for performing math inline.
+\usepackage{xfp}
+% Used for formatting numbers.
+\usepackage{siunitx}
+\sisetup{
+    math-rm=\symup,
+    detect-all,
+    group-minimum-digits=4,
+    group-separator={,}
+}
 
 % This is a macro that formats the checklist items and adds a new line.
 \def\checkitem#1#2{
@@ -84,5 +96,6 @@
 \include{dakota.preflight_checklist.tex}
 \include{dakota.normal_procedures.tex}
 \include{dakota.emergency_procedures.tex}
+\include{dakota.tables_and_figures.tex}
 
 \end{document}

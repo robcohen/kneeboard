@@ -1,79 +1,8 @@
-\documentclass{article}
-\usepackage{geometry}
-    \geometry{
-        a5paper,
-        portrait,
-        % The Jeppesen plate appears to be closer to 0.25in. I think
-        % that 0.5in is looking best for checklists. Compromising to
-        % accomodate longer line lengths.
-        margin=0.25in,
-        rmargin=0.375in,
-        % I decided arbitrarily on these values to maximize margins,
-        % headers, and content in one page (and satisfy fancyhdr).
-        % https://tex.stackexchange.com/questions/132170/what-do-headheight-headsep-etc-do-in-the-vmargin-package
-        headsep=12pt,
-        footskip=12pt,
-        includehead,
-        includefoot
-    }
-% NASA says:
-% > The horizontal spacing between characters should be 25% of the
-% > overall size and not less than one stroke width.
-%
-% The microtype documentation says:
-% > Letterspaced fonts for which settings don’t exist will be spaced out
-% > by the default of 0.1 em [...]
-% AND
-% > The amount is specified in thousandths of 1 em [...]
-%
-% So, we're scaling the default spacing by 25%, and then converting to
-% housandths of an em (0.1 * 1000 * .25).
-\usepackage[letterspace=25]{microtype}
-% For finer control over multi-column layouts.
-\usepackage{multicol}
-% For finer control over headers and footers.
-\usepackage{fancyhdr}
-% Used for degree symbol.
-\usepackage{gensymb}
-% Used for PDF ToC links.
-\usepackage{hyperref}
-% For printing the creation date of the document.
-\usepackage{datetime2}
-% Used for performance charts.
-\usepackage{booktabs}
-% Used for performing math inline.
-\usepackage{xfp}
-% Used for formatting numbers.
-\usepackage{siunitx}
-\sisetup{
-    math-rm=\symup,
-    detect-all,
-    group-minimum-digits=4,
-    group-separator={,}
-}
+\phantomsection
+\addcontentsline{toc}{section}{Tables and Figures}
 
-% Set the default font family to sans-serif.
-\renewcommand{\familydefault}{\sfdefault}
-
-% NASA says:
-% > The vertical spacing between lines should not be smaller than 25-33%
-% > of the overall size of the font.
-\renewcommand{\baselinestretch}{1.25}
-
-% Configure the header and footer.
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{Cheat Sheet}
-\fancyfoot[L]{v.\today}
-\fancyfoot[R]{\thepage}
-
-% We don't need numbered sections.
-\setcounter{secnumdepth}{0}
-
-\begin{document}
-
-% Apply microtype tracking adjustments.
-\lsstyle
+\phantomsection
+\addcontentsline{toc}{subsection}{Rate of climb/descent (ft. per min)}
 
 \begin{table}[ht]
     \caption{Rate of climb/descent (ft. per min)}
@@ -92,8 +21,11 @@
     \end{center}
 \end{table}
 
+\phantomsection
+\addcontentsline{toc}{subsection}{Additional runway length required to clear low, close-in obstacles}
+
 \begin{table}[ht]
-    \caption{Additional runway length required to clear low, close-in obstacles}
+    \hypertarget{runway-length-table}{\caption{Additional runway length required to clear low, close-in obstacle}}
 
     \begin{center}
         \begin{tabular}{lccc}
@@ -113,8 +45,12 @@
     \begin{itemize}
         \item Assumes takeoff performance data is based on clearing a 50' obstacle.
         \item Subtract obstacle's distance from runway end from required runway length.
+        \item \hyperlink{departure-briefing}{Return back to the departure briefing.}
     \end{itemize}
 \end{table}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Dakota flight maneuver entry speeds}
 
 \begin{table}[ht]
     \caption{Dakota flight maneuver entry speeds}
@@ -136,5 +72,3 @@
     % TODO: Maneuvering speed table.
     \textbf{Note:} Maneuvering speed at 2,500 lbf aircraft gross weight is 111.8 KIAS.
 \end{table}
-
-\end{document}
