@@ -41,6 +41,16 @@
 \usepackage{datetime2}
 % Used for performance charts.
 \usepackage{booktabs}
+% Used for performing math inline.
+\usepackage{xfp}
+% Used for formatting numbers.
+\usepackage{siunitx}
+\sisetup{
+    math-rm=\symup,
+    detect-all,
+    group-minimum-digits=4,
+    group-separator={,}
+}
 
 % Set the default font family to sans-serif.
 \renewcommand{\familydefault}{\sfdefault}
@@ -65,52 +75,66 @@
 % Apply microtype tracking adjustments.
 \lsstyle
 
-% [...] you can say \raggedcolumns if you don’t want the bottom lines to
-% be aligned. The default is \flushcolumns, so TEX will normally try to
-% make both the top and bottom baselines of all columns align.
-\raggedcolumns
+\begin{table}[ht]
+    \caption{Rate of climb/descent (ft. per min)}
 
-\begin{figure}[ht]
-    \centering
+    \begin{center}
+        \begin{tabular}{cccc}
+            \toprule
+                             &       & \multicolumn{2}{c}{Ground speed (knots)}
+            \\\cmidrule(lr){3-4}
+            Angle            & ft/NM & 60                                       & 90   \\
+            \midrule
+            3.0\textdegree{} & 318   & 318                                      & 478  \\
+            5.0\textdegree{} & 530   & 530                                      & 795  \\
+            7.0\textdegree{} & 745   & 745                                      & 1120 \\
+        \end{tabular}
+    \end{center}
+\end{table}
 
-    \begin{tabular}{lccc}
-        \toprule
-                      & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
-        \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
-                      & RTRL                                           & RTRL                                           & RTRL                                           \\\midrule
-        200' Obstacle & 1,631'                                         & 1,146'                                         & 3,821'                                         \\
-        150' Obstacle & 1,223'                                         & 1,719'                                         & 2,866'                                         \\
-        100' Obstacle & 815'                                           & 1,146'                                         & 1,910'                                         \\
-    \end{tabular}
+\begin{table}[ht]
+    \caption{Additional runway length required to clear low, close-in obstacles}
 
-    \hfill
+    \begin{center}
+        \begin{tabular}{lccc}
+            \toprule
+                          & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
+            \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+                          & Increase by                                    & Increase by                                    & Increase by                                    \\\midrule
+            % We subtract 50' from the obstacle height because we assume
+            % takeoff performance data clears an initial 50' obstacle.
+            200' obstacle & \num{\fpeval{ceil((6076*150)/745, 0)}}'        & \num{\fpeval{ceil((6076*150)/530, 0)}}'        & \num{\fpeval{ceil((6076*150)/318, 0)}}'        \\
+            150' obstacle & \num{\fpeval{ceil((6076*100)/745, 0)}}'        & \num{\fpeval{ceil((6076*100)/530, 0)}}'        & \num{\fpeval{ceil((6076*100)/318, 0)}}'        \\
+            100' obstacle & \num{\fpeval{ceil((6076*50)/745, 0)}}'         & \num{\fpeval{ceil((6076*50)/530, 0)}}'         & \num{\fpeval{ceil((6076*50)/318, 0)}}'         \\
+        \end{tabular}
+    \end{center}
 
-    \textbf{Note:} Subtract obstacle distance from runway end from RTRL.
+    \textbf{Note:}
+    \begin{itemize}
+        \item Assumes takeoff performance data is based on clearing a 50' obstacle.
+        \item Subtract obstacle's distance from runway end from required runway length.
+    \end{itemize}
+\end{table}
 
-    \caption{Reduce Takeoff Runway Length (RTRL) by some distance to clear an obstacle of some height}
-\end{figure}
+\begin{table}[ht]
+    \caption{Dakota flight maneuver entry speeds}
 
-\begin{figure}[ht]
-    \centering
-
-    \begin{tabular}{lc}
-        \toprule
-        Maneuver         & KIAS \\
-        \midrule
-        Steep Turns      & 110  \\
-        Steep Spiral     & 85   \\
-        Chandelles       & 110  \\
-        Lazy Eights      & 110  \\
-        Eights on Pylons & 110  \\
-        % TODO: Add accelerated stall entry speed.
-    \end{tabular}
-
-    \hfill
+    \begin{center}
+        \begin{tabular}{lc}
+            \toprule
+            Maneuver         & KIAS \\
+            \midrule
+            Steep Turns      & 110  \\
+            Steep Spiral     & 85   \\
+            Chandelles       & 110  \\
+            Lazy Eights      & 110  \\
+            Eights on Pylons & 110  \\
+            % TODO: Add accelerated stall entry speed.
+        \end{tabular}
+    \end{center}
 
     % TODO: Maneuvering speed table.
     \textbf{Note:} Maneuvering speed at 2,500 lbf aircraft gross weight is 111.8 KIAS.
-
-    \caption{Dakota flight maneuver entry speeds}
-\end{figure}
+\end{table}
 
 \end{document}
