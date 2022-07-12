@@ -10,13 +10,14 @@
     \begin{center}
         \begin{tabular}{cccc}
             \toprule
-                             &       & \multicolumn{2}{c}{Ground speed (knots)}
+            \textbf{Angle}   & \textbf{ft/NM} & \multicolumn{2}{c}{\textbf{Ground speed (knots)}}
             \\\cmidrule(lr){3-4}
-            Angle            & ft/NM & 60                                       & 90   \\
+                             &                & 60                                                & 90   \\
             \midrule
-            3.0\textdegree{} & 318   & 318                                      & 478  \\
-            5.0\textdegree{} & 530   & 530                                      & 795  \\
-            7.0\textdegree{} & 745   & 745                                      & 1120 \\
+            3.0\textdegree{} & 318            & 318                                               & 478  \\
+            5.0\textdegree{} & 530            & 530                                               & 795  \\
+            7.0\textdegree{} & 745            & 745                                               & 1120 \\
+            \bottomrule
         \end{tabular}
     \end{center}
 \end{table}
@@ -30,14 +31,15 @@
     \begin{center}
         \begin{tabular}{lccc}
             \toprule
-                          & \multicolumn{1}{c}{745'/NM (7.0\textdegree{})} & \multicolumn{1}{c}{530'/NM (5.0\textdegree{})} & \multicolumn{1}{c}{318'/NM (3.0\textdegree{})}
+                                   & \multicolumn{1}{c}{\textbf{745'/NM (7.0\textdegree{})}} & \multicolumn{1}{c}{\textbf{530'/NM (5.0\textdegree{})}} & \multicolumn{1}{c}{\textbf{318'/NM (3.0\textdegree{})}}
             \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
-                          & Increase by                                    & Increase by                                    & Increase by                                    \\\midrule
+                                   & \textbf{Increase by}                                    & \textbf{Increase by}                                    & \textbf{Increase by}                                    \\\midrule
             % We subtract 50' from the obstacle height because we assume
             % takeoff performance data clears an initial 50' obstacle.
-            200' obstacle & \num{\fpeval{ceil((6076*150)/745, 0)}}'        & \num{\fpeval{ceil((6076*150)/530, 0)}}'        & \num{\fpeval{ceil((6076*150)/318, 0)}}'        \\
-            150' obstacle & \num{\fpeval{ceil((6076*100)/745, 0)}}'        & \num{\fpeval{ceil((6076*100)/530, 0)}}'        & \num{\fpeval{ceil((6076*100)/318, 0)}}'        \\
-            100' obstacle & \num{\fpeval{ceil((6076*50)/745, 0)}}'         & \num{\fpeval{ceil((6076*50)/530, 0)}}'         & \num{\fpeval{ceil((6076*50)/318, 0)}}'         \\
+            \textbf{200' obstacle} & \num{\fpeval{ceil((6076*150)/745, 0)}}'                 & \num{\fpeval{ceil((6076*150)/530, 0)}}'                 & \num{\fpeval{ceil((6076*150)/318, 0)}}'                 \\
+            \textbf{150' obstacle} & \num{\fpeval{ceil((6076*100)/745, 0)}}'                 & \num{\fpeval{ceil((6076*100)/530, 0)}}'                 & \num{\fpeval{ceil((6076*100)/318, 0)}}'                 \\
+            \textbf{100' obstacle} & \num{\fpeval{ceil((6076*50)/745, 0)}}'                  & \num{\fpeval{ceil((6076*50)/530, 0)}}'                  & \num{\fpeval{ceil((6076*50)/318, 0)}}'                  \\
+            \bottomrule
         \end{tabular}
     \end{center}
 
@@ -58,13 +60,14 @@
     \begin{center}
         \begin{tabular}{lc}
             \toprule
-            Maneuver         & KIAS \\
+            \textbf{Maneuver} & \textbf{KIAS} \\
             \midrule
-            Steep Turns      & 110  \\
-            Steep Spiral     & 85   \\
-            Chandelles       & 110  \\
-            Lazy Eights      & 110  \\
-            Eights on Pylons & 110  \\
+            Steep Turns       & 110           \\
+            Steep Spiral      & 85            \\
+            Chandelles        & 110           \\
+            Lazy Eights       & 110           \\
+            Eights on Pylons  & 110           \\
+            \bottomrule
             % TODO: Add accelerated stall entry speed.
         \end{tabular}
     \end{center}
