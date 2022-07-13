@@ -8,11 +8,12 @@
         % accomodate longer line lengths.
         margin=0.25in,
         rmargin=0.375in,
-        % I decided arbitrarily on these values to maximize margins,
-        % headers, and content in one page (and satisfy fancyhdr).
-        % https://tex.stackexchange.com/questions/132170/what-do-headheight-headsep-etc-do-in-the-vmargin-package
-        headsep=12pt,
-        footskip=12pt,
+        % headsep is the separation between header and text. footskip is
+        % the separation between baseline of last line of text and
+        % baseline of footer. The default is a bit larger. Setting these
+        % to the ~line height pleases me, aesthetically.
+        headsep=\baselineskip,
+        footskip=\baselineskip,
         includehead,
         includefoot
     }
