@@ -8,15 +8,15 @@
     \caption{Rate of climb/descent (ft. per min)}
 
     \begin{center}
-        \begin{tabular}{cccc}
+        \begin{tabular}{ccccc}
             \toprule
-            \textbf{Angle}   & \textbf{ft/NM} & \multicolumn{2}{c}{\textbf{Ground speed (knots)}}
-            \\\cmidrule(lr){3-4}
-                             &                & 60                                                & 90   \\
+            \textbf{ft/NM} & \multicolumn{3}{c}{\textbf{Ground speed (knots)}} & \textbf{Angle}
+            \\\cmidrule(lr){2-4}
+                           & 60                                                & 90             & 120  &                  \\
             \midrule
-            3.0\textdegree{} & 318            & 318                                               & 478  \\
-            5.0\textdegree{} & 530            & 530                                               & 795  \\
-            7.0\textdegree{} & 745            & 745                                               & 1120 \\
+            318            & 318                                               & 478            & 637  & 3.0\textdegree{} \\
+            530            & 530                                               & 795            & 1065 & 5.0\textdegree{} \\
+            745            & 745                                               & 1120           & 1940 & 7.0\textdegree{} \\
             \bottomrule
         \end{tabular}
     \end{center}
@@ -31,14 +31,15 @@
     \begin{center}
         \begin{tabular}{lccc}
             \toprule
-                                   & \multicolumn{1}{c}{\textbf{745'/NM (7.0\textdegree{})}} & \multicolumn{1}{c}{\textbf{530'/NM (5.0\textdegree{})}} & \multicolumn{1}{c}{\textbf{318'/NM (3.0\textdegree{})}}
-            \\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
-                                   & \textbf{Increase by}                                    & \textbf{Increase by}                                    & \textbf{Increase by}                                    \\\midrule
+                                   & \multicolumn{3}{c}{\textbf{Climb Angle}}
+            \\\cmidrule(lr){2-4}
+                                   & 745'/NM                                  & 530'/NM                                 & 318'/NM                                 \\
+            \midrule
             % We subtract 50' from the obstacle height because we assume
             % takeoff performance data clears an initial 50' obstacle.
-            \textbf{200' obstacle} & \num{\fpeval{ceil((6076*150)/745, 0)}}'                 & \num{\fpeval{ceil((6076*150)/530, 0)}}'                 & \num{\fpeval{ceil((6076*150)/318, 0)}}'                 \\
-            \textbf{150' obstacle} & \num{\fpeval{ceil((6076*100)/745, 0)}}'                 & \num{\fpeval{ceil((6076*100)/530, 0)}}'                 & \num{\fpeval{ceil((6076*100)/318, 0)}}'                 \\
-            \textbf{100' obstacle} & \num{\fpeval{ceil((6076*50)/745, 0)}}'                  & \num{\fpeval{ceil((6076*50)/530, 0)}}'                  & \num{\fpeval{ceil((6076*50)/318, 0)}}'                  \\
+            \textbf{200' obstacle} & \num{\fpeval{ceil((6076*150)/745, 0)}}'  & \num{\fpeval{ceil((6076*150)/530, 0)}}' & \num{\fpeval{ceil((6076*150)/318, 0)}}' \\
+            \textbf{150' obstacle} & \num{\fpeval{ceil((6076*100)/745, 0)}}'  & \num{\fpeval{ceil((6076*100)/530, 0)}}' & \num{\fpeval{ceil((6076*100)/318, 0)}}' \\
+            \textbf{100' obstacle} & \num{\fpeval{ceil((6076*50)/745, 0)}}'   & \num{\fpeval{ceil((6076*50)/530, 0)}}'  & \num{\fpeval{ceil((6076*50)/318, 0)}}'  \\
             \bottomrule
         \end{tabular}
     \end{center}
@@ -102,9 +103,3 @@
         \end{tabular}
     \end{center}
 \end{table}
-
-\begin{equation}
-    \label{eq1}
-    \textrm{Approximate Pivotal Altitude} = \\
-    GS^2 / 11.3 + \textrm{MSL altitude of ground reference}
-\end{equation}
