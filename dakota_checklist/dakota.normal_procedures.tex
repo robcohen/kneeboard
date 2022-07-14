@@ -123,27 +123,33 @@
     \checkitem{Flaps}{set}
     \checkitem{Trim}{set}
 
+    % In the future, consider creating takeoff/landing cards to do the hard work
+    % before the flight. Then, all we need to do is read through pre-computed
+    % things. Also, consider how to do parts of the briefing while still on the
+    % ramp, rather than right in front of the runway.
     \begin{center}
-        \emph{\hypertarget{departure-briefing}{Departure Briefing}}
+        \emph{\hypertarget{departure-briefing}{Departure briefing}}
     \end{center}
 
-    \checkitem{PIC}{established}
-    \checkitem{Takeoff runway \& length}{briefed}
     % TODO: Include some prompt to think about any possibility of
     % tailwind, extreme crosswind, or extreme temperature inversion.
+    \checkitem{\hyperlink{runway-length-table}{Takeoff distance}}{briefed}
     \checkitem{Terrain \& obstacles}{briefed}
-    \checkitem{\hyperlink{runway-length-table}{Runway length required}}{briefed}
-    \checkitem{Abort point}{briefed}
-    \checkitem{Rotate \& climb speeds}{briefed}
+    \checkitem{Takeoff minimums}{briefed}
     \checkitem{Departure procedure}{briefed}
 
     \begin{center}
-        \emph{Emergency Briefing}
+        \emph{Abnormal operations}
     \end{center}
 
     % TODO: What will we do in case of a fire? Who will fly in an
     % emergency?
+    \checkitem{Rejected takeoff}{briefed}
     \checkitem{Engine power loss}{briefed}
+    \centering{
+        (below \& above $\approx$ 600' AGL)
+        \\
+    }
 \end{checklist}
 
 \begin{checklist}{Takeoff}
