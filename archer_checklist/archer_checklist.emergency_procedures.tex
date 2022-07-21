@@ -1,0 +1,51 @@
+\newtcolorbox{checklist_emerg}[1]{
+    enhanced,
+    title style={
+        pattern={Lines[angle=60,distance=32pt,line width=16pt]},
+        pattern color=black!75,
+    },
+    colback=white,
+    colframe=black,
+    fonttitle=\centering\bfseries,
+    adjusted title={#1},
+    sharpish corners,
+    phantom=\phantomsection,
+    add to list={toc}{subsection}
+}
+
+\phantomsection
+\addcontentsline{toc}{section}{Emergency Procedures}
+
+\twocolumn
+
+\begin{checklist_emerg}{Electrical Fire\\(Smoke in Cabin)}
+    \checkitem{Master switch}{off}
+    \checkitem{Avionics master}{off}
+    \checkitem{Electrical switches}{off}
+    \begin{center}
+        \textbf{If no smoke:}
+    \end{center}
+    \checkitem{Circuit breakers}{note tripped}
+    \checkitem{Circuit breakers}{off}
+    \checkitem{Master switch}{on}
+    \begin{center}
+        \textbf{If no smoke:}
+    \end{center}
+    \checkitem{Avionics master}{on}
+\end{checklist_emerg}
+
+\begin{checklist_emerg}{Alternator Failure}
+    \checkitem{Verify failure}{}
+    \checkitem{Reduce electrical load as much as possible}{}
+    \checkitem{Alt circuit breakers}{check}
+    \checkitem{Alt switch}{off, wait, then on}
+    \begin{center}
+        \textbf{If no output:}
+    \end{center}
+    \checkitem{Alt switch}{off}
+    \checkitem{Reduce electrical load and land as soon as practical}{}
+\end{checklist_emerg}
+
+\textbf{Note:} Checklist is a WIP. Missing emergency procedures (like engine failure) as per 14 CFR § 91.503.
+
+\onecolumn

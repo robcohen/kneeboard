@@ -1,0 +1,74 @@
+\phantomsection
+\addcontentsline{toc}{section}{Tables and Figures}
+
+\input{../shared/climb_descent_table.tex}
+\input{../shared/additional_runway_length_table.tex}
+
+\newcommand{\bookemptyweight}{1634}
+\newcommand{\maxgrossweight}{2550}
+% Approximately two 160 lb adults, 10 lb of baggage, and 40 gal of fuel remaining.
+\newcommand{\grossweight}{2150}
+% The calibrated airspeeds for Vx, Vbg, and Vmd–as well as stall speed Vs and
+% minimum descent rate (h_md) are porportional to gross aircraft weight.
+\newcommand{\scaledvspeed}[1]{\fpeval{#1 + #1 / (2 * \grossweight) * (\grossweight - \maxgrossweight)}}
+% Banking transforms these V speeds as well.
+\newcommand{\bankedvspeed}[2]{\fpeval{#1 / sqrt(cosd(#2))}}
+% Piper's AFM states that "linear interpolation may be used for intermediate
+% gross weights."
+\newcommand{\maneuveringspeed}{\fpeval{89 + (\grossweight - \bookemptyweight) * ((113 - 89) / (\maxgrossweight - \bookemptyweight))}}
+% Keep in mind that there may be some error here–the indicated airspeeds for the
+% V speeds mentioned above vary with air density, too (slightly).
+\newcommand{\bestglidespeed}{\scaledvspeed{76}}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Archer flight maneuver entry speeds at \num{\grossweight} lbf}
+
+\begin{table}[H]
+    \caption{Archer flight maneuver entry speeds at \num{\grossweight} lbf}
+
+    \begin{center}
+        \begin{tabular}{lc}
+            \toprule
+            \textbf{Maneuver} & \textbf{KIAS}                                                 \\
+            \midrule
+            % We round maneuvering speed down to the nearest five knots because
+            % the ACS says we need "an airspeed not to exceed Va."
+            Steep Turns       & \fpeval{floor(\maneuveringspeed / 5) * 5}                     \\
+            % The Airplane Flying Handbook says to establish "gliding speed"–not
+            % any particular "best glide speed." According to Dr. John Lowry's
+            % book, Performance of Light Aircraft, "for most (not all) intents
+            % and purposes, banking to angle Φ is tantamount to increasing gross
+            % weight from W to W / cos Φ." Essentially, banking transforms Vx,
+            % Vbg, and Vmd precisely as it does stall speed. In an analysis I
+            % performed for the Dakota, I discovered several interesting
+            % relationships:
+            %   1) Wings-level best glide speed, calculated for aircraft gross
+            %      weight, is only 1-2 knots above the stall speed at 45° of
+            %      bank.
+            %   2) The max gross weight, wings-level best glide speed (e.g.,
+            %      what's in the POH) gives an approximate 10 knot margin
+            %      against the banked stall speed if flown roughly 400 lbf below
+            %      max gross weight.
+            %   3) Flying a steep spiral at the max gross weight, wings-level
+            %      best glide speed doesn't make sense, even despite the margin.
+            %      In a 50° bank, best glide speed increases too. In the Archer,
+            %      at 2,150 lbf and 45° of bank, best glide speed is
+            %      approximately 86 KCAS. It makes sense to be ahead of L/D max,
+            %      so we round up to the nearest 5 knots:
+            Steep Spiral      & \fpeval{(ceil(\bankedvspeed{\bestglidespeed}{50} / 10) * 10)} \\
+            Chandelles        & \fpeval{floor(\maneuveringspeed / 5) * 5}                     \\
+            Lazy Eights       & \fpeval{floor(\maneuveringspeed / 5) * 5}                     \\
+            Eights on Pylons  & \fpeval{floor(\maneuveringspeed / 5) * 5}                     \\
+            \bottomrule
+            % TODO: Add accelerated stall entry speed.
+        \end{tabular}
+    \end{center}
+
+    \textbf{Note:}
+    \begin{itemize}
+        \item Design maneuvering speed ($V_A$) at \num{\grossweight} lbf gross weight is $\approx$ \num{\fpeval{floor(\maneuveringspeed, 1)}} KIAS.
+        \item Wings-level best glide speed ($V_{bg}$) at \num{\grossweight} lbf gross weight is $\approx$ \num{\fpeval{ceil(\bestglidespeed, 1)}} KIAS.
+    \end{itemize}
+\end{table}
+
+\input{../shared/speed_vs_pivotal_altitude_table.tex}
