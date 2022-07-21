@@ -1,0 +1,29 @@
+\phantomsection
+\addcontentsline{toc}{subsection}{Additional runway length required to clear low, close-in obstacles}
+
+\begin{table}[H]
+    \hypertarget{runway-length-table}{\caption{Additional runway length required to clear low, close-in obstacle}}
+
+    \begin{center}
+        \begin{tabular}{lccc}
+            \toprule
+                                   & \multicolumn{3}{c}{\textbf{Climb Angle}}
+            \\\cmidrule(lr){2-4}
+                                   & 745'/NM                                  & 530'/NM                                 & 318'/NM                                 \\
+            \midrule
+            % We subtract 50' from the obstacle height because we assume
+            % takeoff performance data clears an initial 50' obstacle.
+            \textbf{200' obstacle} & \num{\fpeval{ceil((6076*150)/745, 0)}}'  & \num{\fpeval{ceil((6076*150)/530, 0)}}' & \num{\fpeval{ceil((6076*150)/318, 0)}}' \\
+            \textbf{150' obstacle} & \num{\fpeval{ceil((6076*100)/745, 0)}}'  & \num{\fpeval{ceil((6076*100)/530, 0)}}' & \num{\fpeval{ceil((6076*100)/318, 0)}}' \\
+            \textbf{100' obstacle} & \num{\fpeval{ceil((6076*50)/745, 0)}}'   & \num{\fpeval{ceil((6076*50)/530, 0)}}'  & \num{\fpeval{ceil((6076*50)/318, 0)}}'  \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+    \textbf{Note:}
+    \begin{itemize}
+        \item Assumes takeoff performance data is based on clearing a 50' obstacle.
+        \item Subtract obstacle's distance from runway end from required runway length.
+        \item \hyperlink{departure-briefing}{Return back to the departure briefing.}
+    \end{itemize}
+\end{table}

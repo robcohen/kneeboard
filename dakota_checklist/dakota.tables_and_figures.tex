@@ -1,56 +1,8 @@
 \phantomsection
 \addcontentsline{toc}{section}{Tables and Figures}
 
-\phantomsection
-\addcontentsline{toc}{subsection}{Rate of climb/descent (ft. per min)}
-
-\begin{table}[H]
-    \caption{Rate of climb/descent (ft. per min)}
-
-    \begin{center}
-        \begin{tabular}{ccccc}
-            \toprule
-            \textbf{ft/NM} & \multicolumn{3}{c}{\textbf{Ground speed (knots)}} & \textbf{Angle}
-            \\\cmidrule(lr){2-4}
-                           & 60                                                & 90             & 120  &                  \\
-            \midrule
-            318            & 318                                               & 478            & 637  & 3.0\textdegree{} \\
-            530            & 530                                               & 795            & 1065 & 5.0\textdegree{} \\
-            745            & 745                                               & 1120           & 1940 & 7.0\textdegree{} \\
-            \bottomrule
-        \end{tabular}
-    \end{center}
-\end{table}
-
-\phantomsection
-\addcontentsline{toc}{subsection}{Additional runway length required to clear low, close-in obstacles}
-
-\begin{table}[H]
-    \hypertarget{runway-length-table}{\caption{Additional runway length required to clear low, close-in obstacle}}
-
-    \begin{center}
-        \begin{tabular}{lccc}
-            \toprule
-                                   & \multicolumn{3}{c}{\textbf{Climb Angle}}
-            \\\cmidrule(lr){2-4}
-                                   & 745'/NM                                  & 530'/NM                                 & 318'/NM                                 \\
-            \midrule
-            % We subtract 50' from the obstacle height because we assume
-            % takeoff performance data clears an initial 50' obstacle.
-            \textbf{200' obstacle} & \num{\fpeval{ceil((6076*150)/745, 0)}}'  & \num{\fpeval{ceil((6076*150)/530, 0)}}' & \num{\fpeval{ceil((6076*150)/318, 0)}}' \\
-            \textbf{150' obstacle} & \num{\fpeval{ceil((6076*100)/745, 0)}}'  & \num{\fpeval{ceil((6076*100)/530, 0)}}' & \num{\fpeval{ceil((6076*100)/318, 0)}}' \\
-            \textbf{100' obstacle} & \num{\fpeval{ceil((6076*50)/745, 0)}}'   & \num{\fpeval{ceil((6076*50)/530, 0)}}'  & \num{\fpeval{ceil((6076*50)/318, 0)}}'  \\
-            \bottomrule
-        \end{tabular}
-    \end{center}
-
-    \textbf{Note:}
-    \begin{itemize}
-        \item Assumes takeoff performance data is based on clearing a 50' obstacle.
-        \item Subtract obstacle's distance from runway end from required runway length.
-        \item \hyperlink{departure-briefing}{Return back to the departure briefing.}
-    \end{itemize}
-\end{table}
+\input{../shared/climb_descent_table.tex}
+\input{../shared/additional_runway_length_table.tex}
 
 \phantomsection
 \addcontentsline{toc}{subsection}{Dakota flight maneuver entry speeds}
@@ -77,29 +29,4 @@
     \textbf{Note:} Maneuvering speed at 2,500 lbf aircraft gross weight is 111.8 KIAS.
 \end{table}
 
-\phantomsection
-\addcontentsline{toc}{subsection}{Speed versus pivotal altitude at 100' MSL elevation}
-
-\begin{table}[H]
-    \caption{Speed versus pivotal altitude at 100' MSL elevation}
-
-    \begin{center}
-        \begin{tabular}{cc}
-            \toprule
-            \textbf{Ground speed (knots)} & \textbf{Approximate pivotal pltitude (MSL)}         \\
-            \midrule
-            % Add 100' to represent the base elevation, calculate
-            % approximate pivotal altitude, then round to the nearest
-            % 50.
-            80                            & \num{\fpeval{round((100 + 80^2/11.3) / 50) * 50}}'  \\
-            85                            & \num{\fpeval{round((100 + 85^2/11.3) / 50) * 50}}'  \\
-            90                            & \num{\fpeval{round((100 + 90^2/11.3) / 50) * 50}}'  \\
-            95                            & \num{\fpeval{round((100 + 95^2/11.3) / 50) * 50}}'  \\
-            100                           & \num{\fpeval{round((100 + 100^2/11.3) / 50) * 50}}' \\
-            110                           & \num{\fpeval{round((100 + 110^2/11.3) / 50) * 50}}' \\
-            115                           & \num{\fpeval{round((100 + 115^2/11.3) / 50) * 50}}' \\
-            120                           & \num{\fpeval{round((100 + 120^2/11.3) / 50) * 50}}' \\
-            \bottomrule
-        \end{tabular}
-    \end{center}
-\end{table}
+\input{../shared/speed_vs_pivotal_altitude_table.tex}

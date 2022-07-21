@@ -1,0 +1,26 @@
+\phantomsection
+\addcontentsline{toc}{subsection}{Speed versus pivotal altitude at 100' MSL elevation}
+
+\begin{table}[H]
+    \caption{Speed versus pivotal altitude at 100' MSL elevation}
+
+    \begin{center}
+        \begin{tabular}{cc}
+            \toprule
+            \textbf{Ground speed (knots)} & \textbf{Approximate pivotal pltitude (MSL)}         \\
+            \midrule
+            % Add 100' to represent the base elevation, calculate
+            % approximate pivotal altitude, then round to the nearest
+            % 50.
+            80                            & \num{\fpeval{round((100 + 80^2/11.3) / 50) * 50}}'  \\
+            85                            & \num{\fpeval{round((100 + 85^2/11.3) / 50) * 50}}'  \\
+            90                            & \num{\fpeval{round((100 + 90^2/11.3) / 50) * 50}}'  \\
+            95                            & \num{\fpeval{round((100 + 95^2/11.3) / 50) * 50}}'  \\
+            100                           & \num{\fpeval{round((100 + 100^2/11.3) / 50) * 50}}' \\
+            110                           & \num{\fpeval{round((100 + 110^2/11.3) / 50) * 50}}' \\
+            115                           & \num{\fpeval{round((100 + 115^2/11.3) / 50) * 50}}' \\
+            120                           & \num{\fpeval{round((100 + 120^2/11.3) / 50) * 50}}' \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{table}
