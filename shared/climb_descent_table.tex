@@ -1,20 +1,24 @@
 \phantomsection
 \addcontentsline{toc}{subsection}{Rate of climb/descent (ft. per min)}
 
+% https://aviation.stackexchange.com/questions/26322/how-does-the-faa-compute-the-values-in-tpps-climb-descent-table
+\newcommand{\fpmatangle}[2]{\fpeval{round((#1/60) * tand(#2) * 6076.1)}}
+\newcommand{\fpmatanglerounded}[2]{\fpeval{round(\fpmatangle{#1}{#2} / 5) * 5}}
+
 \begin{table}[H]
     \caption{Rate of climb/descent (ft. per min)}
 
     \begin{center}
-        \begin{tabular}{ccccc}
+        \begin{tabular}{ccccccc}
             \toprule
-            \textbf{ft/NM} & \multicolumn{3}{c}{\textbf{Ground speed (knots)}} & \textbf{Angle}
-            \\\cmidrule(lr){2-4}
-                           & 60                                                & 90             & 120  &                  \\
+            \textbf{ft/NM} & \multicolumn{5}{c}{\textbf{Ground speed (knots)}} & \textbf{Angle}
+            \\\cmidrule(lr){2-6}
+                           & 60                                                & 75                          & 90                          & 105                          & 120                          &                  \\
             \midrule
-            210            & 210                                               & 320            & 425  & 2.0\textdegree{} \\\addlinespace
-            318            & 318                                               & 478            & 637  & 3.0\textdegree{} \\
-            530            & 530                                               & 795            & 1065 & 5.0\textdegree{} \\
-            745            & 745                                               & 1120           & 1940 & 7.0\textdegree{} \\
+            210            & \fpmatanglerounded{60}{2.0}                       & \fpmatanglerounded{75}{2.0} & \fpmatanglerounded{90}{2.0} & \fpmatanglerounded{105}{2.0} & \fpmatanglerounded{120}{2.0} & 2.0\textdegree{} \\
+            318            & \fpmatangle{60}{3.0}                              & \fpmatangle{75}{3.0}        & \fpmatangle{90}{3.0}        & \fpmatangle{105}{3.0}        & \fpmatangle{120}{3.0}        & 3.0\textdegree{} \\
+            530            & \fpmatanglerounded{60}{5.0}                       & \fpmatanglerounded{75}{5.0} & \fpmatanglerounded{90}{5.0} & \fpmatanglerounded{105}{5.0} & \fpmatanglerounded{120}{5.0} & 5.0\textdegree{} \\
+            745            & \fpmatanglerounded{60}{7.0}                       & \fpmatanglerounded{75}{7.0} & \fpmatanglerounded{90}{7.0} & \fpmatanglerounded{105}{7.0} & \fpmatanglerounded{120}{7.0} & 7.0\textdegree{} \\
             \bottomrule
         \end{tabular}
     \end{center}
