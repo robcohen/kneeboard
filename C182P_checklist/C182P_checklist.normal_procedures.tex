@@ -1,7 +1,18 @@
 % This is the box that surrounds the checklist items.
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
 \newtcolorbox{checklist}[1]{
     colback=white,
-    colframe=black,
+    colframe=ceruleanblue,
+    fonttitle=\centering\bfseries,
+    adjusted title={#1},
+    sharpish corners,
+    phantom=\phantomsection,
+    add to list={toc}{subsection}
+}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+\newtcolorbox{checklistg}[1]{
+    colback=white,
+    colframe=ao(english),
     fonttitle=\centering\bfseries,
     adjusted title={#1},
     sharpish corners,
@@ -16,72 +27,67 @@
 
 \begin{checklist}{In-Cabin Preflight}
     \checkitem{Certificates/Documents}{ARROW}
-    \checkitem{Tach/Hobbs}{RECORDED}
-    \checkitem{Control Lock}{REMOVED}
-    \checkitem{Emergency Equipment}{CHECK}
-    \checkitem{Magnetos}{OFF}
-    \checkitem{Alternate Static}{CLOSED}
-    \checkitem{Circuit Breakers}{IN}
-    \checkitem{Electrical Equipment}{OFF}
-    \checkitem{Master Switch}{ON}
-    \checkitem{Fuel Quantity}{SET}
-    \checkitem{Flaps}{FULL}
-    \checkitem{Avionics Fan}{AUDIBLE}
-    \checkitem{Master Switch}{OFF}
+    \checkitem{Tach/Hobbs}{Recorded}
+    \checkitem{Control Lock}{Removed}
+    \checkitem{Emergency Equipment}{Check}
+    \checkitem{Magnetos}{Off}
+    \checkitem{Alternate Static}{Closed}
+    \checkitem{Circuit Breakers}{In}
+    \checkitem{Electrical Equipment}{Off}
+    \checkitem{Master Switch}{On}
+    \checkitem{Fuel Quantity}{Set}
+    \checkitem{Flaps}{Full}
+    \checkitem{Avionics Fan}{Audible}
+    \checkitem{Master Switch}{Off}
 \end{checklist}
 
 \begin{checklist}{Exterior Inspection}
-    \checkitem{Walk Around}{COMPLETE}
+    \checkitem{Walk Around}{Complete}
 \end{checklist}
 
 \begin{checklist}{Before Start}
-    \checkitem{Preflight Inspection}{COMPLETED}
-    \checkitem{Tiedowns/Chocks}{OUT}
-    \checkitem{Towbar}{STOWED}
-    \checkitem{Baggage Door}{SECURED}
-    \checkitem{Passenger Briefing}{STANDARD}
-    \checkitem{Seats/Seat Belts}{ADJUSTED \& SECURE}
-    \checkitem{Parking Break}{SET}
-    \checkitem{Circuit Breakers}{CHECK}
-    \checkitem{Avionics}{OFF}
-    \checkitem{Fuel Selector}{BOTH}
-    \checkitem{Cowl Flaps}{OPEN}
+    \checkitem{Preflight Inspection}{Complete}
+    \checkitem{Tiedowns/Chocks}{Out}
+    \checkitem{Towbar}{Stowed}
+    \checkitem{Baggage Door}{Secured}
+    \checkitem{Passenger Briefing}{Standard}
+    \checkitem{Seats/Seat Belts}{Adj. \& Secure}
+    \checkitem{Parking Break}{Set}
+    \checkitem{Circuit Breakers}{In}
+    \checkitem{Avionics}{Off}
+    \checkitem{Fuel Selector}{Both}
+    \checkitem{Cowl Flaps}{Open}
 \end{checklist}
 
 
 \begin{checklist}{Start}
-    \checkitem{Throttle}{OPEN 1/4"}
-    \checkitem{Propellor}{FULL FORWARD}
-    \checkitem{Mixture}{FULL RICH}
-    \checkitem{Carburetor Heat}{COLD}
-    \checkitem{Battery Master}{ON}
-    \checkitem{Beacon}{ON}
-    \checkitem{Prime}{AS REQUIRED}
-    \checkitem{Magnetos}{CLEAR PROP, START}
-    \checkitem{Oil Pressure}{GREEN IN 30 S.}
-    \checkitem{Ammeter}{CHECK, ON, CHECK}
-    \checkitem{Ext. Lights}{ON AS REQUIRED}
-    \checkitem{Avionics}{ON, SET}
-    \checkitem{Flaps}{RETRACT}
+    \checkitem{Throttle}{Open 1/4"}
+    \checkitem{Propellor}{Full Forward}
+    \checkitem{Mixture}{Full Rich}
+    \checkitem{Carburetor Heat}{Cold}
+    \checkitem{Battery Master}{On}
+    \checkitem{Beacon}{On}
+    \checkitem{Prime}{As Required}
+    \checkitem{Magnetos}{Clear Prop, Start}
+    \checkitem{Oil Pressure}{Green in 30s}
+    \checkitem{Ammeter}{Check, On, Check}
+    \checkitem{Ext. Lights}{On as Required}
+    \checkitem{Avionics}{ON, Set}
+    \checkitem{Flaps}{Retract}
     \checkitem{Transponder}{ALT}
-    \checkitem{Parking Break}{OFF}
-    \checkitem{Breaks}{TEST}
+    \checkitem{Parking Break}{Off}
+    \checkitem{Breaks}{Test}
 \end{checklist}
 
 \begin{checklist}{After Start}
-    \checkitem{Avionics \& G5 master}{on}
-    \checkitem{Circuit breakers}{check}
-    \checkitem{Garmin database}{check}
-    \checkitem{Garmin self-test}{check}
-    \tcblower
-    \checkitem{ATIS \& clearance}{recieved}
-\end{checklist}
-
-\begin{checklist}{Before Taxi}
-    \checkitem{Transponder}{set}
-    \checkitem{COM \& NAV}{set}
-    \checkitem{Initial altitude}{set}
-    \checkitem{Initial heading}{set}
+    \checkitem{Garmin database}{Check}
+    \checkitem{Garmin self-test}{Check}
+    \checkitem{ATIS}{Copied}
+    \checkitem{Transponder}{Set}
+    \checkitem{COM \& NAV}{Set}
+    \checkitem{Initial altitude}{Set}
+    \checkitem{Initial heading}{Set}
+    \checkitem{Clearance}{Recieved}
 \end{checklist}
 
 \begin{checklist}{Taxi}
@@ -100,7 +106,14 @@
 % TBD: Finish this.
 % See: https://www.avweb.com/flight-safety/pelicans-perch-19putting-it-all-together/
 \begin{checklist}{Engine Run-Up}
-    \checkitem{Mixture}{full rich}
+    \checkitem{Seats/Belts}{Secure}
+    \checkitem{Cabin Doors}{Closed}
+    \checkitem{Flight Controls}{Free \& Correct}
+    \checkitem{Autopilot}{Check, Off}
+    \checkitem{Flight Instruments\*\*}{Check \& Set}
+    \checkitem{Fuel Quantity}{Check}
+    \checkitem{Fuel Selector}{Both}
+    \checkitem{Mixture}{Full Rich}
     % John Deakin says:
     % > The usual 1,700 RPM for running up most TCM engines (or 2,000
     % > RPM for most Lycomings) is NOT critical. I’ve seen pilots diddle
@@ -116,35 +129,30 @@
     % > plug, or cylinder. This was well-known in the big old radials,
     % > where mag checks are almost always performed at about 30″ MP,
     % > and up around 2,300 RPM (varies with model).
-    \checkitem{Throttle}{1800 RPM}
+    \checkitem{Throttle}{Approx. 1700 RPM}
     % \checkitem{JPI}{normalize}
-    \checkitem{Mags}{check L \& R}
+    \checkitem{Magnetos}{Check L \& R}
     \centering{
-        (max drop 175; max $\Delta$ 50)
+        (max drop 150; max $\Delta$ 50)
         \\
     }
-    \checkitem{Carburetor heat}{check}
+    \checkitem{Propellor}{Cycle 3X}
+    \checkitem{Carburetor heat}{Check}
     \checkitem{Vacuum}{4.9-5.1$''$Hg}
-    \checkitem{Load meter}{check}
-    \checkitem{Fuel pressure}{check}
-    \checkitem{Oil pressure \& oil temp.}{check}
-    \checkitem{Alternate static}{check}
-    \checkitem{Annunciator panel}{check}
-    \checkitem{Throttle}{idle}
-    \checkitem{Mixture}{lean for taxi}
+    \checkitem{Engine Indicators}{Check}
+    \checkitem{Ammeter}{Check}
+    \checkitem{Annunciators}{Check}
+    \checkitem{Circuit Breakers}{In}
+    \checkitem{Alternate static}{Check}
+    \checkitem{Throttle}{Idle}
+    \checkitem{Mixture}{Lean for Taxi}
 \end{checklist}
 
 \begin{checklist}{Before Takeoff}
-    \checkitem{Flight controls}{check}
-    \checkitem{Flight instruments}{check}
     \checkitem{Carburetor heat}{off}
     \checkitem{Flaps}{set}
     \checkitem{Trim}{set}
 
-    % In the future, consider creating takeoff/landing cards to do the hard work
-    % before the flight. Then, all we need to do is read through pre-computed
-    % things. Also, consider how to do parts of the briefing while still on the
-    % ramp, rather than right in front of the runway.
     \begin{center}
         \emph{\hypertarget{departure-briefing}{Departure briefing}}
     \end{center}
@@ -171,44 +179,45 @@
 \end{checklist}
 
 \begin{checklist}{Takeoff}
-    \checkitem{Time off}{noted}
-    \checkitem{Doors \& windows}{secured}
-    \checkitem{Exterior lights}{set}
-    \checkitem{Fuel pump}{on}
-    \checkitem{Mixture}{full rich or target EGT}
-    \checkitem{Throttle}{full power}
+    \checkitem{Time off}{Noted}
+    \checkitem{Doors \& windows}{Secured}
+    \checkitem{Exterior lights}{Set}
+    \checkitem{Mixture}{Full Rich or Target EGT}
+    \checkitem{Throttle}{Full Power}
 
     \begin{tcolorbox}[boxsep=0mm,left=0mm,right=0mm,colframe=black,colback=black,sharpish corners] 
         \color{white}
         \centering {
-            \textbf{I WILL LOSE THE ENGINE,\\I WILL PUSH IMMEDIATELY!}
+            \textbf{IF I LOSE THE ENGINE,\\I WILL PUSH IMMEDIATELY!}
         }
     \end{tcolorbox}
 \end{checklist}
 
-\begin{checklist}{Before Approach}
+\twocolumn
+
+\begin{checklistg}{Before Approach}
     \checkitem{NOTAMS}{briefed}
     \checkitem{ATIS, arrival, \& approach}{briefed}
     \checkitem{Terrain \& taxi}{briefed}
     \checkitem{Specials}{briefed}
-\end{checklist}
+\end{checklistg}
 
-\begin{checklist}{Approach}
+\begin{checklistg}{Approach}
     \checkitem{Altimeter}{verify}
     \checkitem{DA or MDA}{verify MSL}
     \checkitem{Throttle}{1800 RPM}
     \checkitem{Airspeed}{90 KIAS}
     \checkitem{Mixture}{constant EGT}
-\end{checklist}
+\end{checklistg}
 
-\begin{checklist}{After Landing}
+\begin{checklistg}{After Landing}
     \checkitem{Flaps}{retract}
     \checkitem{Mixture}{lean for taxi}
     \checkitem{Fuel pump}{off}
     \checkitem{Carburetor heat}{off}
-\end{checklist}
+\end{checklistg}
 
-\begin{checklist}{V-Speeds}
+\begin{checklistg}{V-Speeds}
     \checkitem{$V_{BG}$}{76 KIAS}
     \checkitem{$V_R$ (flaps 0\degree{})}{53 KIAS}
     \checkitem{$V_R$ (flaps 25\degree{})}{41-49 KIAS}
@@ -218,15 +227,15 @@
     \checkitem{$V_{Ref}$ (flaps 40\degree{})}{66 KIAS}
     \checkitem{$V_{A}$}{89-113 KIAS}
     \checkitem{$V_{S_{0}}$/$V_{S_{1}}$}{49/55 KIAS}
-\end{checklist}
+\end{checklistg}
 
-\begin{checklist}{Engine Shutdown}
-    \checkitem{G5 \& avionics master}{off}
-    \checkitem{Lights}{off}
-    \checkitem{Throttle}{1000 RPM}
-    \checkitem{Mixture}{idle cut-off}
-    \checkitem{Ignition}{off}
+\begin{checklistg}{Engine Shutdown}
+    \checkitem{G5 \& avionics master}{Off}
+    \checkitem{Lights}{Off}
+    \checkitem{Throttle}{700 RPM}
+    \checkitem{Mixture}{Idle Cut-off}
+    \checkitem{Ignition}{Off, Show}
     \checkitem{Master switch}{off}
-\end{checklist}
+\end{checklistg}
 
 \onecolumn
