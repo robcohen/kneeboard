@@ -1,77 +1,24 @@
 {
-  description = "Build LaTeX document with minted";
+  description = "A Nix-flake-based LaTeX development environment";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
 
-  outputs = { self, nixpkgs, flake-utils }:
-    {
-      templates.document = {
-        path = ./.;
-        description = "LaTeX document with minted support";
-      };
-
-      lib.latexmk = import ./build-document.nix;
-
-      defaultTemplate = self.templates.document;
-    } // flake-utils.lib.eachDefaultSystem (system:
-      let
+  outputs = { self, nixpkgs }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
         pkgs = import nixpkgs { inherit system; };
-
-        latex-packages = with pkgs; [
-          (texlive.combine {
-            inherit (texlive)
-              scheme-medium
-              framed
-              titlesec
-              cleveref
-              multirow
-              wrapfig
-              tabu
-              threeparttable
-              threeparttablex
-              makecell
-              environ
-              biblatex
-              biber
-              fvextra
-              upquote
-              catchfile
-              xstring
-              csquotes
-              minted
-              dejavu
-              comment
-              footmisc
-              xltabular
-              ltablex
-              ;
-          })
-          which
-          python39Packages.pygments
-        ];
-
-        dev-packages = with pkgs; [
-          texlab
-          zathura
-          wmctrl
-        ];
-      in
-      rec {
-        devShell = pkgs.mkShell {
-          buildInputs = [ latex-packages dev-packages ];
+      });
+    in
+    {
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            texlive.combined.scheme-full
+            texlab
+            tectonic
+          ];
         };
-        
-        packages = flake-utils.lib.flattenTree {
-          document = import ./build-document.nix {
-            inherit pkgs;
-            texlive = latex-packages;
-            shellEscape = true;
-            minted = true;
-            SOURCE_DATE_EPOCH = toString self.lastModified;
-          };
-        };
-
-        defaultPackage = packages.document;
-      }
-    );
+      });
+    };
 }
