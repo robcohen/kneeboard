@@ -34,7 +34,7 @@
     \checkitem{Control Lock}{Removed}
     \checkitem{Emergency Equipment}{Check}
     \checkitem{Magnetos}{Off}
-    \checkitem{Alternate Static}{Closed}
+    \checkitem{Alt. Static}{Check Closed}
     \checkitem{Circuit Breakers}{In}
     \checkitem{Electrical Equipment}{Off}
     \checkitem{Bat. Switch}{On}
@@ -83,12 +83,12 @@
     \checkitem{Ignition}{Start}
     \checkitem{Oil Pressure}{Green 30s/60s}
     \checkitem{Ammeter}{Check, On, Charge}
-    \checkitem{Mixture}{Lean, Set}
+    \checkitem{Mixture}{Lean for Taxi}
     \checkitem{Avionics}{On, Set}
     \checkitem{Flaps}{Retract}
     \checkitem{Transponder}{ALT}
     \checkitem{Parking Break}{Off}
-    \checkitem{Breaks}{Test}
+    \checkitem{Brake}{Test}
 \end{checklist}
 
 \begin{checklist}{Ready to Taxi}
@@ -136,7 +136,7 @@
     % > where mag checks are almost always performed at about 30″ MP,
     % > and up around 2,300 RPM (varies with model).
     \checkitem{Propellor}{High RPM}
-    \checkitem{Throttle}{1700-2000 RPM}
+    \checkitem{Throttle}{1800 RPM}
     \checkitem{Oil Pressure/Temp}{Green}
     \checkitem{Cyl. Head Temp}{Green}
     \checkitem{Ammeter}{Check}
@@ -153,8 +153,6 @@
     \checkitem{Throttle}{700 RPM}
     \checkitem{Carb Heat}{Cold}
     \checkitem{Mixture}{Lean for Taxi}
-    \checkitem{Circuit Breakers}{In}
-    \checkitem{Alternate Static}{Check}
 \end{checklist}
 
 \begin{checklist}{Before Takeoff}
@@ -164,17 +162,17 @@
     \checkitem{Trim}{Set}
     \checkitem{Cowl Flaps}{Full Open}
     \checkitem{Lights}{As Req.}
-
+    \checkitem{Takeoff Checklist}{Review}
     \begin{center}
         \emph{\hypertarget{departure-briefing}{Departure Briefing}}
     \end{center}
 
     % TODO: Include some prompt to think about any possibility of
     % tailwind, extreme crosswind, or extreme temperature inversion.
-    \checkitem{\hyperlink{runway-length-table}{Takeoff Distance}}{Briefed}
-    \checkitem{Terrain \& Obstacles}{Briefed}
-    \checkitem{Takeoff Minimums}{Briefed}
-    \checkitem{Departure Procedure}{Briefed}
+    %\checkitem{\hyperlink{runway-length-table}{Takeoff Distance}}{Briefed}
+    %\checkitem{Terrain \& Obstacles}{Briefed}
+    %\checkitem{Takeoff Minimums}{Briefed}
+    %\checkitem{Departure Procedure}{Briefed}
 
     \begin{center}
         \emph{Abnormal Operations}
@@ -182,10 +180,11 @@
 
     % TODO: What will we do in case of a fire? Who will fly in an
     % emergency?
-    \checkitem{Rejected Takeoff}{Briefed}
-    \checkitem{Engine Power Loss}{Briefed}
+    \checkitem{On Runway}{Briefed}
+    \checkitem{Runway in Front}{Briefed}
+    \checkitem{Below 1000}{Briefed}
     \centering{
-        (below \& above $\approx$ 600' AGL)
+        (below \& above $\approx$ 1000' AGL)
         \\
     }
 \end{checklist}
@@ -207,20 +206,16 @@
     \end{tcolorbox}
 \end{checklist}
 
-\begin{checklist}{Enroute Climb}
+\begin{checklist}{Cruise Climb \> 1000 AGL}
     \checkitem{Target Airspeed}{87-96 KIAS}
-    \checkitem{Power}{23"/2450 RPM}
-    \checkitem{Prop}{As Req.}
+    \checkitem{Power/Prop}{23"/2450 RPM}
     \checkitem{Mixture}{Rich}
     \checkitem{Cowl Flaps}{As Req.}
 \end{checklist}
 
 \begin{checklist}{Cruise}
-    \checkitem{Target Airspeed}{87-96 KIAS}
-    \checkitem{Power}{15"-23"/2200-2450 RPM}
-    \checkitem{Prop}{As Req.}
+    \checkitem{Power/Prop}{15"-23"/2200-2450 RPM}
     \checkitem{Mixture}{Leaned}
-    \checkitem{Trims}{As Req.}
     \checkitem{Cowl Flaps}{As Req.}
 \end{checklist}
 
@@ -228,20 +223,18 @@
     \checkitem{Fuel Selector}{Both}
     \checkitem{Cowl Flaps}{As Req.}
     \checkitem{Rudder Trim}{Reset}
-    \checkitem{Mixture}{Rich}
     \checkitem{Carb Heat}{As Req.}
     \checkitem{Power}{As Req.}
-    \checkitem{ATIS}{Copied} 
+    \checkitem{ATIS/Specials}{Copied} 
     \checkitem{Arrival \& Approach}{Briefed}
     \checkitem{Terrain \& Taxi}{Briefed}
-    \checkitem{Specials}{Briefed}
 \end{checklist}
 
 \begin{checklistg}{Before Landing}
     \checkitem{Seat \& Belts}{Secure}
     \checkitem{Fuel Selector}{Both}
     \checkitem{Mixture}{Rich}
-    \checkitem{Propellor}{High RPM}
+    \checkitem{Propellor}{Slow to High RPM}
     \checkitem{Cowl Flaps}{As Req.}
     \checkitem{Rudder Trim}{Neutralize}
     \checkitem{Ext. Lights}{As Req.}
@@ -257,7 +250,7 @@
 \begin{checklistg}{After Landing}
     \checkitem{Flaps}{Full Retract}
     \checkitem{Cowl Flaps}{Open}
-    \checkitem{Carb Heat}{Cold}
+    \checkitem{Carb. Heat}{Cold}
     \checkitem{Mixture}{Lean for Taxi}
     \checkitem{Lights}{As Required}
 \end{checklistg}
@@ -268,7 +261,7 @@
     \checkitem{Avionics}{Off}
     \checkitem{Throttle}{700 RPM}
     \checkitem{Mixture}{Idle Cutoff}
-    \checkitem{Magnetos}{Off \& Pull Key}
+    \checkitem{Magnetos}{Off \& Show Key}
     \checkitem{Master Switch}{Off}
     \checkitem{Position Plane}{Chocks}
     \checkitem{Cowl Flaps}{Closed}
@@ -277,7 +270,7 @@
 
 \begin{checklist}{V-Speeds}
     \checkitem{$V_{BG}$ flaps Up/Down}{70/65}
-    \checkitem{$V_R$ (flaps 0\degree{}/25\degree{})}{60/50 KIAS}
+    \checkitem{$V_R$ (flaps 0\degree{}/20\degree{})}{60/50 KIAS}
     \checkitem{$V_{X}$ sea/10K}{59/63 KIAS}
     \checkitem{$V_{Y}$ sea/10K}{80/63 KIAS}
     \checkitem{$V_{A}$}{89-110 KIAS}
